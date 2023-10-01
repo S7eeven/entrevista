@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRUEBAS TECNICA JAVASCRIPT</title>
+</head>
+
+<body>
+    <h1>PRUEBAS TECNICA JAVASCRIPT</h1>
+    <p>1+1</p>
+    <script>
+        /*
+        en este ejercicio debe analizar registros de temperatura para encontrar el mas cercano a cero.
+        implemente la funcion computerClosetsToZero(ts) y devuelve la temperatura mas cercana a 0 ts es tamanio.
+        si la amtrixz esta vacia, la funcion devolvera 0,
+        0 <= ts ts<= 10000
+        si 2 temperaturas estan igualmente cerca de cero, se debe devolver la temperatura positiva.
+        */
+        /*
+        function computeClosestToZero() {
+            let acumulador = '';
+            const arr = [5, 6, 1, -1, 8, 3, 4, 10]
+
+            if (arr == '') {
+                console.log(0);
+            } else {
+                const positivo = Math.sign(...arr)
+                console.log(positivo);
+                const sercano = Math.min(...arr);
+                //console.log(sercano);
+            }
+        }
+        computeClosestToZero()
+        */
+
+        /*
+               En este problema filtrara palabra segun la letra que 
+               contiene. especificamente, se le dara una lista de entrada
+               de palabras (todas minusculas) junto con un conjunto de 
+               letras en minusculas y se le pedira que filtre las 
+               palabras que no contiene letras en el conjunto dado.
+               words = ["oso", "dUdU", "papa", "eo", "hola"]
+               letters = 'eo'
+               elRESULTADO: [OSO,eo,hola] por que contiene letras e y o
+               SI el array esta vacio nos mostrara un 0.
+        */
+        /*
+        function filtrar(words, letters) {
+            const index = words.filter( elemento => elemento == letters);
+            return index;
+        }
+        console.log(filtrar(["oso", "dUdU", "papa", "eo", "hola"], 'eo'));
+        */
+
+        /*TODO: MONEDAS
+            en este problema se le dara una lista de enteros positivos y un entero 
+            separado K y se le pedira que encuentre si hay un par de enteros en 
+            la lista que suman exatamente.
+            implementar una funcion que tome por entrada una matriz de enteros 
+            posistivos numeros y un entero positivo k que represente la suma objecto.
+            numeros = [1,2,3,4,5]
+            k= 13
+        */
+        /*
+        //FORMA #1
+        function hola(num, k) {
+            let acumulador = 0;
+            const monedasUsadas = [];
+
+            for (const moneda of num) {
+                while (moneda <= k) {
+                    monedasUsadas.push(moneda);
+                    k -= moneda;
+                }
+            }
+            return monedasUsadas
+        }
+        console.log(hola([5, 4, 3, 2, 1], 13));
+        */
+        
+        /*
+         //FORMA #2
+        function convertirAMonedas(cantidad, monedas) {
+            if (cantidad === 0) {
+                return [];
+            } else {
+                if (cantidad >= monedas[0]) {
+                    let temporal = (cantidad - monedas[0]);
+                    return [monedas[0]].concat(convertirAMonedas(temporal, monedas));
+                } else {
+                    monedas.shift();
+                    return convertirAMonedas(cantidad, monedas);
+                }
+            }
+        }
+        //console.log(convertirAMonedas(13, [25, 10, 5, 2, 1])); 
+        console.log(convertirAMonedas(13, [5, 4, 3, 2])); 
+        */
+        
+
+
+        /*********************************************/     /*********************************************/     /*********************************************/
+
+        /*TODO: FizzBuzz
+        Escribe un programa que muestre los numeros de 1 al 100, 
+        sustituyendo los multiplos de 3 por fizz, los de 5 por buzz, 
+        los de 3y5 por fizzbuzz */
+        /*
+        for (let i = 1; i <=100; i++) {     
+            if(i % 3 === 0 && i % 5 === 0){
+                console.log(i, "FIZZ-BUZZ");
+            } else if (i % 3 ===0) {
+                console.log(i, 'Fizz')
+            } else if (i % 5 ===0) {
+                console.log(i, 'Buzz')
+            } else{
+                console.log(i)
+            }
+        }
+        */
+
+        /*TODO: DIFERENCIA ENTRE VAR, LET Y CONT*/
+        /*
+        let nombre = 'steven';
+        const apellido = 'orbe';
+        let edad = 23;  */
+
+        /*Cual quier variable declarada dentro de una funcion,
+        solo se podra hacer uso de ella dentro de dicha funcion.*/
+        /*Ademas las avriables let declaradas dentro de una funcio o ciclo 
+        solo poda ser accedida dentro de ellas*/
+        /*
+        function variables() {
+
+            /*
+            let edad= 20;
+            const apellido = 'borja';
+            let saludo = 'hola mundo';
+
+            console.log(nombre);
+            console.log(edad);
+            console.log("este e smi APELLIDO DENTRO D ELA FUNCION: ",apellido);
+            console.log(saludo);
+        } 
+        variables();
+        console.log('**************************************');
+        console.log(nombre);
+        console.log(edad);
+        console.log(apellido);          */
+
+        /*
+        function variables(){
+            let i = 'contratado';
+            var j = 'contartado-J';
+
+            for (let i = 0; i < 2; i++) {
+                //console.log(i); //esta va a imprimer 0,1
+            }
+            for (var j = 0; j < 2; j++) {
+                //console.log(j) //est va a imprimer 0,1
+            }
+
+            //console.log(j) //este va a ingrimer el 2 por el for
+            //console.log(i) //este va a imprimer contratado.
+        }
+        variables();
+        */
+
+        /*TODO: Crear un algoritmo que busque el numero MENOR, MAYOR y sume el max y min
+        los repetidos. [1,2,3,4,56,7,8,10] [,1,1,1,2,10]*/
+        /*
+        function maxMin(number) {
+            //console.log(number);
+            const resultado = number.reduce((acc, number)=>{
+                if (acc.max < number) {
+                    acc.max = number;
+                }
+                if (acc.min > number) { 
+                    acc.min = number;
+                }
+                return acc
+            },{min: Infinity, max: 0});
+            console.log(resultado.min);
+            console.log(resultado.max);
+            console.log("la suma los max y min es: ", resultado.min + resultado.max);
+            return resultado.min + resultado.max;
+        }
+        maxMin([1,2,3,4,56,7,10]);
+        */
+        /* //Ota forma de hacerlo.
+         function minMax(arr) {
+             let min = Math.min(...arr);
+             console.log('El valor minmo es: ',min)
+             let max = Math.max(...arr);
+             console.log('El valor maximo es: ', max);
+             let suma = min + max;
+             return suma;
+         }
+         console.log(minMax([1,2,3,4,56,7,8,10]));
+        */
+
+        /*TODO: crear un programa que al pasarle una una palabra por
+        parametros esta nos devuelva en forma reversa: entrada libros sorbil*/
+        /*
+        function palabra(str){
+            //Split Nos va a devolver un array con cada una de las letras.
+            //reverse() => se va a encargar de revertir las letras
+            //join('') => nos permite juntar cada una de las letras.
+            let resultado = str.split('').reverse().join('');
+            //console.log(resultado)
+            return resultado
+        }
+        console.log( palabra('libros') );
+        */
+
+        /*TODO: Encontrar el factorial de un numero entero.
+            5! = 5*4*3*2*1  Aplicamos recursividad.*/
+        /*
+    function factorial(num){
+        //SOLUCION #1
+        //if (num === 0 || num === 1) {
+        //    return 1;
+        // }else{
+        //    return num * factorial(num-1);
+        //}
+
+        //SOLUCION #2
+        let total = 1;
+        for (let i = 0; i < num; i++) {
+            console.log(num-i);
+            total *= num - i
+        }
+        return total;
+    }
+    console.log(factorial(5));
+    */
+
+        /*TODO: Unir 2 array y que nos retorne un solo array unidos*/
+        /*
+        let arr = [1,2,3,4,5];
+        let arr2 = [6,7,8,9];
+        console.log(...arr, ...arr2);
+        */
+
+        /*TODO: crear uan funcion llamada removeDuplicate la cual dado
+        un array  no ordenado retorne una nuevo array sin elemntos 
+        duplicados. */
+        //Set() permite almacenar valores unicos.
+        /*
+        function removeDuplicado(arr){
+            let mySet = new Set(arr);
+            return Array.from(mySet)
+            //return [...mySet]    
+        }
+        console.log(removeDuplicado([1,2,1,8,3,4,5,6,6,7,8,10,9]))
+        */
+
+        /*TODO: crear un objecto llamado persona con los campos 
+        nombre, edad y con los emtodo get y set nombre, y que
+        este al ginal me imprima el nombre que le demos.
+        */
+        /*
+        const persona = {
+            nombre: '',
+            edad: '',
+            getNombre: () => {
+                return this.nombre.toUpperCase()
+            },
+            setNombre: (n) => {
+                this.nombre = n
+            }
+        }
+        const steven = persona
+        steven.setNombre('Steven')
+        console.log(steven.getNombre())
+        */
+
+
+        /*TODO:  Haga que la funcion Calcular(str) tome el parametro str 
+        que se esta pasando y evalue la exprexion matematica dentro de in.
+        Por ejemplo, SI str fuera '2+(3-1)*3', la salida deberia ser 8. 
+        Otro ejemplo, si str fuera '(2-0)(6/2)', la salida deberia ser 6. 
+        Puede haver paretesis dentro de la cadena, por lo que debe evaluarlo 
+        correctamente de acuerdo con las reglas de la aritmetica. la cadena 
+        contendra los operadores: +-*%. ENTRADA: '6*(4/2)+3*1' SALIDA: 15,  ENTRADA: '6/3-1 SALIDAD: 1' */
+        /*
+        function calcular(str){
+            //SOLUCION #1
+            //return new Function('return ' + str)();
+
+            //SOLUCION #2 La función eval() evalúa un código JavaScript representado como una cadena de caracteres (string), sin referenciar a un objeto en particular
+            return eval(str)
+        }
+        console.log(calcular(prompt('ingresa la exprecion a evaluar.')));
+        */
+
+        /*TODO: Haga que la funcion Histograma(arr)
+        lea la matriz de enteros no negativos almacenados en arr que representaran 
+        las alturas de las barras en un grafico (donde el ancho de cada barra es 1) 
+        y determine el area mas grande debajo de todo el grafico de barras. 
+        Por ejemplo arr=[2,1,3,4,1] entonces esto se ve como el siguiente grafico
+        https://es.acervolima.com/area-de-rectangulo-mas-grande-debajo-del-histograma-usando-javascript-sin-usar-pilas/
+                    4               
+                3  |---|       
+         2    |---||***|   
+        |-| 1 |***||***| 1
+        | ||-||***||***||-|
+        Puede ver en el siguiente garfico anterior que el area mas grande debajo del grafico esta cibuerta por las *. El area de ese espacio es igual a 6 por que el ancho de ese espacio es igual a 6 por que el ancho total es 2 y la altura maxima es 3, por lo tanto, 2*3=6, tu programa deveria devolver 6. la amtriz siempre contendria al menos 1 elemento.
+        ENTRADA: [6,3,1,4,12,4] SALIDA: 12 -- ENTRADA: [5,6,7,4,1] SALIDA: 16
+        */
+
+
+        /*TODO: Escribe uan funcion que filtre numeros de  una lista. mayores a 10*/
+        let numbers = [1, 5, 23, 4, 12, 45, 78, 8, 8.9, 10, 11, 3.4, 10.1, 84, 6]
+        /* //SOLUCON #1
+        let greaterTen = [];
+
+        for (let i = 0; i<numbers.length; i++) {
+        var currentNumber = numbers[i];
+        if (currentNumber >= 1) {
+            greaterTen.push(currentNumber)
+        }
+        }   */
+        /*
+            //solucion #2
+        let greaterTen2 = numbers.filter(number => number > 10 );
+        console.log(greaterTen2);
+        */
+
+        //console.log(greaterTen);
+
+
+        /*TODO: Escriba una funcion que encuentre un elemento dentro de una lista sin clasificar.*/
+        /*
+        function buscar(arr){
+            let encontrado = arr.filter(elemento => elemento > 5);
+            return encontrado
+        }
+        console.log(buscar([1,2,3,4,5,6,7,8]));
+        */
+
+        /*TODO: crear una funcion que me muestre tru si el numero que
+        busco se encuentra dentro del array*/
+        /*
+        function buscardor(num){
+            let arr = [1,2,5,8,7,4,6,9];
+            let incluye = arr.includes(num);
+            return incluye
+        }
+        console.log(buscardor(20));
+        */
+
+
+        /*TODO: crear una funcion que reciba por parametros el numero
+        ingresado, y este me muestre el indice del numero que se encuentar 
+        en el array*/
+        /*
+        const letras = ['a','b','c','d','f','g']
+        function indixeBuscar(letra){
+            let indice = letras.findIndex(letra);
+            return indice
+        }
+        console.log(indixeBuscar('b'))
+
+        */
+
+        /*TODO: Determinar si una palabra es polindromo, atarves
+        de una funcion que reciba una palabra como parametro.*/
+        /*
+        function polindromo(palabra){
+            let resultado = palabra.split('').reverse().join('');
+            if(palabra == resultado){
+                console.log('La palabra ingresada es polindromo:', palabra );
+            }else{
+                console.log('no es correecto');
+            }   
+        }
+        console.log(polindromo(prompt("Ingresa la palabra")));
+        */
+
+
+        /*TODO: Elimene los valores repetidos de un  conjunto de matrices de  enteros.*/
+        /*
+         function eliminarRepetidos(arr){
+             const nuevoArray = new Set(arr);
+             let resultado = [...nuevoArray];
+             console.log(resultado);
+         }
+         eliminarRepetidos([1,13,24,11,11,14,1,2]);
+         */
+
+        /*TODO: Cuente las letras mas repetidas de una cadena ingresada por parametros*/
+        /*
+        function letraRepetida(palabra){
+            let indices = [];
+            let contador = '';
+            let letra = prompt('letra a buscar');
+
+            for (let i = 0; i < palabra.length; i++) {
+                //console.log(palabra[i]);
+                if (palabra[i] == letra) {
+                    indices.push(i);
+                    contador = indices.length;
+                }
+            }
+            return contador; //me retorno number cuanta veces a encontador esa letar en la frase.
+            //return indices; //me retornoa los indices de las letras encontradas en un array
+        }
+        console.log(letraRepetida(prompt('Ingresa la palabra: ')));
+        */
+
+        /*TODO: Realice el intercambio de 2 enteros sin utilizar variables temporales.*/
+        /*
+        function intercambio(a,b) {
+            let a1 = b;
+            let b1 = a
+
+            return ['valor de a: ',a1, 'valor de b:',b1]
+        }
+        let a = prompt("ingresa el valor de a: ");
+        let b = prompt("ingresa el valor de b: ");
+        console.log(intercambio(a,b));
+        */
+
+
+        /*TODO: Carcular el numero fibonaci de un numero ingresado 
+        por teclado y este sera recivido como parametro.*/
+        /*
+        function fibonacci(num) {
+            const nume = [0,1];
+            for (let i = 2; i < num; i++) {
+                console.log(i);
+                nume[i] = nume[i-2]+nume[i-1];
+            }
+            return nume;
+        }
+        console.log(fibonacci(prompt("ingresa un numero para clacualr el fibonacci: ")));
+        */
+
+
+        /*TODO: Genere aleatoriamente una cade de longitud especifica*/
+        /*
+        const randomString = (n) => {  
+            let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let tmp = '',
+                i = 0,
+                l = str.length;
+            for (i = 0; i < n; i++) {
+            tmp += str.charAt(Math.floor(Math.random() * l));
+            }
+            return tmp;
+        }
+        console.log(randomString(8));
+        */
+
+
+        /*TODO: Escriba una funcion que acepte dos numeros
+        a y b devuelva tanto la division de a y b como su 
+        modulo de a y b*/
+        /*
+        const divicionMod = (a,b) => {
+            //Solucion #1
+            if ( b !== 0) {
+                return [a / b, a % b];
+            }
+            //return [0, 0];
+            
+            
+            //solucion #2
+            let d = a / b;
+            let mod = a % b;
+            return [d,mod]
+        }
+        let a = prompt('ingresa el avlor de a');
+        let b = prompt('ingresa el valor de b');
+        console.log(divicionMod(a,b));
+        */
+        /*
+        let students = [
+            {
+                name: 'Alvaro',
+                score: 10,
+            },
+            {
+                name: 'Daniel',
+                score: 16,
+            },
+            {
+                name: 'Alexys',
+                score: 12,
+            },
+            {
+                name: 'Rafa',
+                score: 17,
+            },
+            {
+                name: 'Alejandro',
+                score: 8,
+            },
+            {
+                name: 'Sofia',
+                score: 9,
+            }
+        ]
+        let approved = students.filter(student => student.score > 11);
+        console.log(approved);
+        */
+
+    </script>
+
+</body>
+
+</html>

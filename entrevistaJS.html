@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body id="contenido">
+    <h1>ENTREVISTA JSs</h1>
+    <section class="contenido"></section>
+    <script >//TODO: METODOS JS ****************************************
+        /*
+        'midudev'.length //7
+        'midudev'.includes('dev') //true
+        'midudev'.indexOf('midu') //0
+        'midudev'.startsWith('midu') //true
+        'midudev'.endsWith('paint') //false
+        'midudev'.slice(0,4) //midu => copiar y clonar un arreglo a un nuevo arreglo
+        'midudev'.slice(0,4, 'pepe') //pepedev
+
+        [1,2,3,4,5].concat([6,7,8]) //[1,2,3,4,5,6,7,8]
+        [1,2,3,4,5].fill('5',1,3) //[1,'5', '5', 4,5] llena con el '5' la posicon 1 hast la 3 seria 1 y 2
+        [10,5,3,88,2].sort((a, b) => a-b) //[2,3,5,10,88] //ordena para eso debemos poner (a,b)=> a-b de esta forma ordenara de menor a mayor
+        ['1','2','3','4'].substr(1,2) // ['2','3']
+        [1,2,3].map(elemento => elemento == 'a') //['a1','a2','a3']
+        [3,4,8,6].map((n) => n*2 ===0) //[6,8,16,12]  //cre un array con los resultados ondion 
+        [1,4,7,8].filter((n) => n % 2 == 0) //[4,8] filtra el elemento a buscarY nos crear un ARRAY.
+        [3,5,6,8].find((n) => n % 2 === 0) //6
+        [a,b,c,d].findIndex(elemenyo => elemento == b ) // nos devolvera el indice de esa letras.
+        [3,5,6,8].some((n) => n > 6) //true verifica que almenos un elemento del array cumpla con al condicion 
+        [2,3,4,5].every((x) => x < 6) //true verifica que los numero del array satifacen su codicion
+        [1,2,3,4].reduce() //[4+3+2+1] nos devuelve un solo valor 10
+        [1,2,3,4].reverse() //[4,3,2,1] invierte el array
+        [1,2,3].join('-') //1-2-3 los separa por -
+
+        [1,2,3].push(4) //[1,2,3,4] agrea al final
+        [1,2,3].pop() //[1,2] eliminel el ultimo
+        [1,2,3].shift() //[2,3] elimina el primero
+        [1,2,3,4].unshift(0) //[0,1,2,3,4] agrega al inicio
+        [1,2,4,3,4,5,8,6,7,8] //Set() permite almecenar valores unicos. => 
+        let myset = new Set(mi array) y retornamos  la variables myset y noes mostrara un array con valores unicos.
+
+        'midudev'.toUpperCase() //MIDUDEV
+        'midudev'.toLowerCase() //midudev
+        'midudev'.replace('dev', 'hola') //miduhola
+        'midudev'.repeat(3) //midumidumidu
+        'midudev'.trim() //mi du elimina los espacios  mi di => midu
+        'midudev'.split(' ') //['mi', 'du', 'dev']
+        /**********************************************************/
+        function hola(){
+            let nombre = 'steven'.toUpperCase();
+            let apellido = "ORBE".toLowerCase();
+            let pila = 'kiko'.replace('kiko','pepe');
+            let repetir = 'javascript'.repeat(2);
+            let espacios = 'steven orbe   '.trim();
+            let espacios2 = "hola pe dro je je".replace(/\s+/g, '');
+            /*let redu = [1,2,3].reduce(function(a,b) {
+                return a+b; });
+            return redu;
+            */
+            //TRUE SI TODOS LOS ELEMENTOS DEL ARRY SATIFACEN LA CONDICION.
+            let eve = [2,3,4,5,6,7,8].every((x) => x > 2);
+            // ALMENOS UN ELE,ENTOS DEL HAY DEBE CUMPLIR CON LA CONDICION.
+            let som = [2,3,4,5,6].some((n) => n > 4);
+            //NOS DEBUELVE EL INDICE.
+            let indice = [2,4,3,5].findIndex( n => n == 2 );
+            //Nos del vuelve el primer valor que encuentre acorde ala condicion.
+            let indice2 = [2,4,5,6].find(n => n > 2);
+            //FILTRA TODOS LOS ELEMENTOS QUE CUMPLAN LA CONDICION.
+            let fil = [1,4,7,8].filter((n) => n % 2 == 0)
+
+            return fil;
+        }
+        //console.log(hola());
+        /**************  TODAS LAS PALABRAS QUE TENGAN LA LETRA e ****************************/   
+        /*
+            const consulta = "e";
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
+            const letras = consulta.split(""); //divides las letras individualmente
+            const filtrado = meses.filter(mes => { //filtras los meses
+                for (letra of letras) { //recorres las letras
+                    if (mes.indexOf(letra) !== -1) //Chequeas si la letra está dentro de la palabra
+                        return true;
+                }
+                return false;
+            });
+            console.log(filtrado)
+        */
+    /*****************************************************************/
+    /*
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        //.then(json => console.log(json))
+        .then( respon => mostrarHTML(respon))
+
+    function mostrarHTML(datos) {
+        const contendio = document.querySelector('.contenido')
+        let html = '';
+        datos.forEach(perfil => {
+            //const {name, username} = perfil;
+            //TODO: esta es al forma que tenemos para acceder a on obj dentro de otro objecto en este caso queremos acceder a address
+            const {id, name, username, email, address: {city, suite} } = perfil
+            html += `
+                <p>ID: ${id}</p>
+                <p>Author: ${name}</p>
+                <p>Au: ${username}</p>
+                <p>Email: ${email}</p>
+                <p>Cuidad: ${city}</p>
+                <p>departamento: ${suite}</p>
+                <hr>
+            `
+        })
+        contendio.innerHTML = html;
+    }
+    */
+    /************** *   **  *   *   **  *   *   *   **  **************/
+    /*
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        //.then(json => console.log(json))
+        .then(respon => llamadoAP(respon))
+        //.catch((error)=>{console.log(`ho algo salio MAL> ${error}`)})
+
+   function llamadoAP(datos) {
+        const secion = document.querySelector('.contenido')
+        let html = '';
+        datos.forEach(usuarios => {
+            const {id, name, username, email} = usuarios;
+            html += `
+            <p>ID: ${id}</p>
+            `
+        })
+        secion.innerHTML = html;
+    }
+    llamadoAP()   
+    */
+    /*
+    const MaxMin = function(){
+        const miarray = [1,2,3,4,56,7,8,10];
+        //console.log(miarray)
+        let mayor = Math.max(...miarray)
+        let menor = Math.min(...miarray)
+        console.log(mayor);
+        console.log(menor)
+    }
+    MaxMin();
+    */
+    /*
+    function polindromo(palabra) {
+        let string = palabra.split('').reverse().join('');
+        if(palabra === string){
+            console.log(`bien ${string}`)
+        }else{
+            console.log(`no lo es`);
+        }
+        //console.log(string)
+    }
+    polindromo('oso');
+    */
+
+       function filtrado() {
+            const numeros = [1,2,3,4,5,6];
+            let mayores = numeros.filter((n)=>n >= 5)
+            let indicee = numeros.indexOf(3) //muestar inde del numero que le eindico.
+            const nuevo = [];
+
+            for (let i = 0; i < numeros.length; i++) {
+                if(numeros[i] % 2 == 0 ){
+                    nuevo.push(numeros[i]);
+                }  
+            }
+            console.log(nuevo)
+            console.log(indicee)
+            console.log(mayores);
+       }
+       filtrado()
+
+
+       function duplicados() {
+            const miarray = [1,2,3,2,5,4,6,7,3,8];
+            let mySet = new Set(miarray);
+            console.log(mySet)
+       }
+       duplicados();
+
+
+       function calcular(str) {
+        return eval(str)
+       }
+       console.log(calcular(prompt('ingresa operacion')))
+
+       
+
+
+
+
+
+    </script>
+ 
+</body>
+</html>
